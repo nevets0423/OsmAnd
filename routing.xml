@@ -392,7 +392,7 @@
 		<attribute name="penaltyForReverseDirection" value="300" /> <!-- car: ~ 5 minutes to find U-turn -->
 	 	<!--<attribute name="heuristicCoefficient" value="1.5" />
 		-->
-		<attribute name="derivedProfiles" value="default,truck"/>
+		<attribute name="derivedProfiles" value="default,camper"/>
 		<!-- MAIN parameter to approximate (35m good for custom recorded tracks)-->
 		<attribute name="minPointApproximation" value = "50"/>
 		<!-- don't search subsegments shorter than specified distance (also used to step back for car turns) -->
@@ -424,25 +424,14 @@
 		<parameter id="avoid_ice_roads_fords" name="Avoid ice roads, fords" description="Avoid ice roads and fords" type="boolean"/>
 		<parameter id="avoid_4wd_only" name="Avoid 4WD roads" description="Avoid roads only suitable for 4WD only vehicles" type="boolean"/>
 		<parameter id="allow_private" name="Allow private access" description="Allow access to private areas for cars" type="boolean" profiles="default"/>
-		<parameter id="allow_private_for_truck" name="Allow private access (truck)" description="Allow access to private areas for trucks" type="boolean" profiles="truck"/>
 		<parameter id="goods_restrictions" name="Goods vehicles restrictions" description="Consider access permissions for light goods vehicles (goods)" type="boolean" profiles="default"/>
-		<parameter id="hazmat_category" name="Hazmat category" description="Hazardous materials category / Consider hazmat access permissions" type="numeric" values="0,1,2,3,4" valueDescriptions="No restrictions,B,C,D,E" default="0" profiles="truck"/>
-		<!--<parameter id="hazmat_category_usa" name="Hazmat category (USA)" description="Hazardous materials category (USA) / Consider hazmat access permissions" type="numeric" values="0,1,1.1,1.2,1.3,1.4,1.5,1.6,2,2.1,2.2,2.3,3,4,4.1,4.2,4.3,5,5.1,5.2,6,6.1,6.2,7,8,9" valueDescriptions="No restrictions,1,1.1,1.2,1.3,1.4,1.5,1.6,2,2.1,2.2,2.3,3,4,4.1,4.2,4.3,5,5.1,5.2,6,6.1,6.2,7,8,9" default="0" profiles="truck"/>-->
-		<parameter id="hazmat_category_usa_1" name="HazMat 1. Explosives" description="HazMat 1. Explosives" type="boolean" profiles="truck"/>
-		<parameter id="hazmat_category_usa_2" name="HazMat 2. Gases" description="HazMat 2. Gases" type="boolean" profiles="truck"/>
-		<parameter id="hazmat_category_usa_3" name="HazMat 3. Flammable liquids" description="HazMat 3. Flammable liquids" type="boolean" profiles="truck"/>
-		<parameter id="hazmat_category_usa_4" name="HazMat 4. Flammable solids" description="HazMat 4. Flammable solids" type="boolean" profiles="truck"/>
-		<parameter id="hazmat_category_usa_5" name="HazMat 5. Oxidizing agents and organic peroxides" description="HazMat 5. Oxidizing agents and organic peroxides" type="boolean" profiles="truck"/>
-		<parameter id="hazmat_category_usa_6" name="HazMat 6. Toxic and infectious substances" description="HazMat 6. Toxic and infectious substances" type="boolean" profiles="truck"/>
-		<parameter id="hazmat_category_usa_7" name="HazMat 7. Radioactive substances" description="HazMat 7. Radioactive substances" type="boolean" profiles="truck"/>
-		<parameter id="hazmat_category_usa_8" name="HazMat 8. Corrosive substances" description="HazMat 8. Corrosive substances" type="boolean" profiles="truck"/>
-		<parameter id="hazmat_category_usa_9" name="HazMat 9. Miscellaneous" description="HazMat 9. Miscellaneous" type="boolean" profiles="truck"/>
+		<parameter id="hazmat_category" name="Hazmat category" description="Hazardous materials category / Consider hazmat access permissions" type="numeric" values="0,1,2,3,4" valueDescriptions="No restrictions,B,C,D,E" default="0" profiles="camper"/>
+		<!--<parameter id="hazmat_category_usa" name="Hazmat category (USA)" description="Hazardous materials category (USA) / Consider hazmat access permissions" type="numeric" values="0,1,1.1,1.2,1.3,1.4,1.5,1.6,2,2.1,2.2,2.3,3,4,4.1,4.2,4.3,5,5.1,5.2,6,6.1,6.2,7,8,9" valueDescriptions="No restrictions,1,1.1,1.2,1.3,1.4,1.5,1.6,2,2.1,2.2,2.3,3,4,4.1,4.2,4.3,5,5.1,5.2,6,6.1,6.2,7,8,9" default="0" profiles="camper"/>-->
+		<parameter id="hazmat_category_usa_1" name="HazMat 1. Explosives" description="Propane" type="boolean" profiles="camper"/>
 		<parameter id="weight" name="Weight" description="Maximum vehicle weight to be permitted on the route" type="numeric" values="0,1.5,3,3.5,5,7.5,10,12,15,20,30,40" valueDescriptions="-,1.5t,3t,3.5t,5t,7.5t,10t,12t,15t,20t,30t,40t"/>
 		<parameter id="height" name="Height" description="Maximum vehicle height to be permitted on the route" type="numeric" values="0,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.5,7,7.5" valueDescriptions="-,1.5m,2m,2.5m,3m,3.5m,4m,4.5m,5m,5.5m,6m,6.5m,7m,7.5m"/>
 		<parameter id="length" name="Length" description="Maximum vehicle length to be permitted on the route" type="numeric" values="0,5,6,6.5,7,8,9,9.5,10,11,12" valueDescriptions="-,5m,6m,6.5m,7m,8m,9m,9.5m,10m,11m,12m"/>
 		<parameter id="width" name="Width" description="Maximum vehicle width to be permitted on the route" type="numeric" values="0,1.5,2,2.3,2.5,3" valueDescriptions="-,1.5m,2m,2.3m,2.5m,3m"/>
-		<parameter id="maxaxleload" name="Max axle load" description="Maximum legal load weight limit per axle" type="numeric" values="0,1.5,3,3.5,5,7.5,10,12,15,20,30,40" valueDescriptions="-,1.5t,3t,3.5t,5t,7.5t,10t,12t,15t,20t,30t,40t" profiles="truck"/>
-		<parameter id="weightrating" name="Max weight at full load" description="Maximum permitted weight of the vehicle at full load" type="numeric" values="0,1.5,3,3.5,5,7.5,10,12,15,20,30,40" valueDescriptions="-,1.5t,3t,3.5t,5t,7.5t,10t,12t,15t,20t,30t,40t" profiles="truck"/>
 		<parameter id="motor_type" name="Motor type" description="For CO2 computation" type="numeric" values="0,1,2,3,4,5,6,7" valueDescriptions="-,Petrol,Diesel,Lpg,Gas,Electric,Hybrid,Ethanol"/>
 
 		<way attribute="access">
@@ -491,17 +480,6 @@
 			</if>
 
 			<select value="-1" t="highway" v="steps"/>
-
-			<if param="profile_truck">
-				<select value="-1" t="hgv" v="no"/>
-				<select value="-1" t="hgv_articulated" v="no"/>
-				<if param="allow_private_for_truck">
-					<select value="1" t="hgv" v="private"/>
-					<select value="1" t="hgv_articulated" v="private"/>
-				</if>
-				<select value="-1"  t="hgv" v="private"/>
-				<select value="-1"  t="hgv_articulated" v="private"/>
-			</if>
 
 			<select value="-1" t="motorcar" v="no"/>
 			<select value="-1" t="motorcar" v="agricultural"/>
@@ -568,23 +546,8 @@
 			<select value="1"  t="access" v="permissive"/>
 			<select value="1"  t="access" v="destination"/>
 			<select value="1"  t="access" v="customers"/>
-
-			<if param="profile_truck">
-				<select value="-1" t="maxweight:hgv">
-					<gt value1=":weight" value2="$maxweight" type="weight"/>
-				</select>
-				<select value="-1" t="maxweightrating:hgv">
-					<gt value1=":weightrating" value2="$maxweightrating:hgv" type="weight"/>
-				</select>
-			</if>
 			<select value="-1" t="maxweight">
 				<gt value1=":weight" value2="$maxweight" type="weight"/>
-			</select>
-			<select value="-1" t="maxweightrating">
-				<gt value1=":weightrating" value2="$maxweightrating" type="weight"/>
-			</select>
-			<select value="-1" t="maxaxleload">
-				<gt value1=":maxaxleload" value2="$maxaxleload" type="weight"/>
 			</select>
 			<select value="-1" t="maxheight">
 				<gt value1=":height" value2="$maxheight" type="length"/>
@@ -663,56 +626,6 @@
 				<select value="-1" t="hazmat:1.4" v="no"/>
 				<select value="-1" t="hazmat:1.5" v="no"/>
 				<select value="-1" t="hazmat:1.6" v="no"/>
-			</if>
-
-			<if param="hazmat_category_usa_2">
-				<select value="-1" t="hazmat" v="no"/>
-				<select value="-1" t="hazmat:2" v="no"/>
-				<select value="-1" t="hazmat:2.1" v="no"/>
-				<select value="-1" t="hazmat:2.2" v="no"/>
-				<select value="-1" t="hazmat:2.3" v="no"/>
-			</if>
-
-			<if param="hazmat_category_usa_3">
-				<select value="-1" t="hazmat" v="no"/>
-				<select value="-1" t="hazmat:3" v="no"/>
-			</if>
-
-			<if param="hazmat_category_usa_4">
-				<select value="-1" t="hazmat" v="no"/>
-				<select value="-1" t="hazmat:4" v="no"/>
-				<select value="-1" t="hazmat:4.1" v="no"/>
-				<select value="-1" t="hazmat:4.2" v="no"/>
-				<select value="-1" t="hazmat:4.3" v="no"/>
-			</if>
-
-			<if param="hazmat_category_usa_5">
-				<select value="-1" t="hazmat" v="no"/>
-				<select value="-1" t="hazmat:5" v="no"/>
-				<select value="-1" t="hazmat:5.1" v="no"/>
-				<select value="-1" t="hazmat:5.2" v="no"/>
-			</if>
-
-			<if param="hazmat_category_usa_6">
-				<select value="-1" t="hazmat" v="no"/>
-				<select value="-1" t="hazmat:6" v="no"/>
-				<select value="-1" t="hazmat:6.1" v="no"/>
-				<select value="-1" t="hazmat:6.2" v="no"/>
-			</if>
-
-			<if param="hazmat_category_usa_7">
-				<select value="-1" t="hazmat" v="no"/>
-				<select value="-1" t="hazmat:7" v="no"/>
-			</if>
-
-			<if param="hazmat_category_usa_8">
-				<select value="-1" t="hazmat" v="no"/>
-				<select value="-1" t="hazmat:8" v="no"/>
-			</if>
-
-			<if param="hazmat_category_usa_9">
-				<select value="-1" t="hazmat" v="no"/>
-				<select value="-1" t="hazmat:9" v="no"/>
 			</if>
 
 			<select value="1" t="highway" v="motorway"/>
@@ -828,12 +741,6 @@
 			<select value="100" t="highway" v="motorway_link"/>
 			<select value="90" t="highway" v="trunk_link"/>
 
-			<if param="profile_truck">
-				<select value="$maxspeed:hgv" t="maxspeed:hgv"/>
-				<select value="$maxspeed:goods" t="maxspeed:goods"/>
-				<select value="$maxspeed:truck" t="maxspeed:truck"/>
-			</if>
-
 			<!-- shortway handled internally -->
 			<select value="$maxspeed:motorcar" t="maxspeed:motorcar"/>
 			<select value="$maxspeed:practical" t="maxspeed:practical"/>
@@ -907,9 +814,6 @@
 			<select t="access" v="destination" value="0.15"/>
 			<select t="access" v="delivery" value="0.15"/>
 			<select t="access" v="customers" value="0.15"/>
-			<if param="profile_truck">
-				<select t="hgv" v="delivery" value="0.15"/>
-			</if>
 			<select t="oneway" v="reversible" value="0.01"/>
 
 			<select value="0.2" t="tracktype" v="grade5" />
