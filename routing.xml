@@ -392,7 +392,7 @@
 		<attribute name="penaltyForReverseDirection" value="300" /> <!-- car: ~ 5 minutes to find U-turn -->
 	 	<!--<attribute name="heuristicCoefficient" value="1.5" />
 		-->
-		<attribute name="derivedProfiles" value="default,truck,motorcycle"/>
+		<attribute name="derivedProfiles" value="default,truck"/>
 		<!-- MAIN parameter to approximate (35m good for custom recorded tracks)-->
 		<attribute name="minPointApproximation" value = "50"/>
 		<!-- don't search subsegments shorter than specified distance (also used to step back for car turns) -->
@@ -423,7 +423,7 @@
 		<parameter id="avoid_borders" name="Avoid border crossing" description="Avoid crossing a border into another country" type="boolean"/>
 		<parameter id="avoid_ice_roads_fords" name="Avoid ice roads, fords" description="Avoid ice roads and fords" type="boolean"/>
 		<parameter id="avoid_4wd_only" name="Avoid 4WD roads" description="Avoid roads only suitable for 4WD only vehicles" type="boolean"/>
-		<parameter id="allow_private" name="Allow private access" description="Allow access to private areas for cars" type="boolean" profiles="default,motorcycle"/>
+		<parameter id="allow_private" name="Allow private access" description="Allow access to private areas for cars" type="boolean" profiles="default"/>
 		<parameter id="allow_private_for_truck" name="Allow private access (truck)" description="Allow access to private areas for trucks" type="boolean" profiles="truck"/>
 		<parameter id="goods_restrictions" name="Goods vehicles restrictions" description="Consider access permissions for light goods vehicles (goods)" type="boolean" profiles="default"/>
 		<parameter id="hazmat_category" name="Hazmat category" description="Hazardous materials category / Consider hazmat access permissions" type="numeric" values="0,1,2,3,4" valueDescriptions="No restrictions,B,C,D,E" default="0" profiles="truck"/>
@@ -501,21 +501,6 @@
 				</if>
 				<select value="-1"  t="hgv" v="private"/>
 				<select value="-1"  t="hgv_articulated" v="private"/>
-			</if>
-
-			<if param="profile_motorcycle">
-				<select value="-1" t="motorcycle" v="no"/>
-				<select value="-1" t="motorcycle" v="private"/>
-				<select value="-1" t="motorcycle" v="agricultural"/>
-				<select value="-1" t="motorcycle" v="forestry"/>
-				<select value="-1" t="motorcycle" v="agricultural;forestry"/>
-				<select value="-1" t="motorcycle" v="forestry;agricultural"/>
-				<select value="1" t="motorcycle" v="yes"/>
-				<select value="1" t="motorcycle" v="permissive"/>
-				<select value="1" t="motorcycle" v="designated"/>
-				<select value="1" t="motorcycle" v="destination"/>
-				<select value="1" t="motorcycle" v="customers"/>
-				<select value="1" t="motorcycle" v="official"/>
 			</if>
 
 			<select value="-1" t="motorcar" v="no"/>
@@ -752,12 +737,6 @@
 		</way>
 
 		<way attribute="oneway">
-			<if param="profile_motorcycle">
-				<select value="1" t="oneway:motorcycle" v="yes"/>
-				<select value="1" t="oneway:motorcycle" v="1"/>
-				<select value="0" t="oneway:motorcycle" v="no"/>
-				<select value="-1" t="oneway:motorcycle" v="-1"/>
-			</if>
 			<select value="1" t="oneway:motorcar" v="yes"/>
 			<select value="0" t="oneway:motorcar" v="no"/>
 			<select value="-1" t="oneway:motorcar" v="-1"/>
@@ -1156,20 +1135,6 @@
 			<if param="allow_private">
 				<select value="1" t="bollard" v="removable"/>
 				<select value="1" t="bollard" v="rising"/>
-			</if>
-			<if param="profile_motorcycle">
-				<select value="-1" t="motorcycle" v="no"/>
-				<select value="-1" t="motorcycle" v="private"/>
-				<select value="-1" t="motorcycle" v="agricultural"/>
-				<select value="-1" t="motorcycle" v="forestry"/>
-				<select value="-1" t="motorcycle" v="agricultural;forestry"/>
-				<select value="-1" t="motorcycle" v="forestry;agricultural"/>
-				<select value="0" t="motorcycle" v="yes"/>
-				<select value="0" t="motorcycle" v="permissive"/>
-				<select value="0" t="motorcycle" v="designated"/>
-				<select value="0" t="motorcycle" v="destination"/>
-				<select value="0" t="motorcycle" v="customers"/>
-				<select value="0" t="motorcycle" v="official"/>
 			</if>
 			<select value="-1" t="barrier" v="bollard"/>
 			<select value="-1" t="barrier" v="chain"/>
